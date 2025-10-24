@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include "DyV.h"
-
 using namespace std;
 
 int main()
@@ -32,7 +32,15 @@ int main()
     }
     cout << endl;
 
+	auto start = chrono::system_clock::now();
+
     QuickSort(datosDesordenados, 0, datosDesordenados.size() - 1);
+
+	auto end = chrono::system_clock::now();
+
+	chrono::duration<float, std::milli> duration = end - start;
+
+	cout << "Time: " << duration.count() << "s" << std::endl;
 
     cout << "Arreglo después de QuickSort: ";
     for (int num : datosDesordenados)
