@@ -25,7 +25,29 @@ int BusquedaBinaria(const std::vector<int>& arr, int buscar, int ini, int fin) {
     return -1;
 }
 
-void QuickSort(std::vector<int>& v, int ini, int fin) {
+int BusquedaBinariaINV(const std::vector<int> &arr, int buscar, int ini, int fin) { // Arreglo en orden descendente
+    int minimo = ini;
+    int maximo = fin;
+
+    while (minimo <= maximo) {
+        int medio = minimo + (maximo - minimo) / 2;
+
+        if (arr[medio] == buscar) {
+            return medio;
+        }
+        else if (arr[medio] > buscar) {
+            minimo = medio + 1;
+        }
+        else {
+            maximo = medio - 1;
+        }
+    }
+
+    return -1;
+}
+
+    void QuickSort(std::vector<int> &v, int ini, int fin)
+{
     if (ini < fin) {
         int pivot = v[fin];
         int i = ini;

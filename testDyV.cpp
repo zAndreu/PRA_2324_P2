@@ -24,6 +24,24 @@ int main()
         cout << "Elemento no encontrado en el arreglo." << endl;
     }
 
+    vector<int> datosDescendentes = {19, 17, 15, 13, 11, 9, 7, 5, 3, 1};
+    int objetivoDesc = 13;
+    for (int i = 0; i < datosDescendentes.size(); i++)
+    {
+        cout << datosDescendentes[i] << " ";
+    }
+    cout << endl;
+    int resultadoDesc = BusquedaBinariaINV(datosDescendentes, objetivoDesc, 0, datosDescendentes.size() - 1);
+
+    if (resultadoDesc != -1)
+    {
+        cout << "Elemento encontrado en el índice: " << resultadoDesc << endl;
+    }
+    else
+    {
+        cout << "Elemento no encontrado en el arreglo." << endl;
+    }
+
     vector<int> datosDesordenados = {34, 7, 23, 32, 5, 62};
     cout << "Arreglo antes de QuickSort: ";
     for (int num : datosDesordenados)
