@@ -1,8 +1,10 @@
+#ifndef DYV_H
+#define DYV_H
 #include <iostream>
 #include <vector>
-using namespace std;
 
-int BusquedaBinaria(const vector<int>& arr, int buscar, int ini, int fin) {
+
+int BusquedaBinaria(const std::vector<int>& arr, int buscar, int ini, int fin) {
     int minimo = ini;
     int maximo = fin;
 
@@ -23,7 +25,7 @@ int BusquedaBinaria(const vector<int>& arr, int buscar, int ini, int fin) {
     return -1;
 }
 
-void QuickSort(vector<int>& v, int ini, int fin) {
+void QuickSort(std::vector<int>& v, int ini, int fin) {
     if (ini < fin) {
         int pivot = v[fin];
         int i = ini;
@@ -40,3 +42,5 @@ void QuickSort(vector<int>& v, int ini, int fin) {
         QuickSort(v, i + 1, fin);
     }
 }
+
+#endif
