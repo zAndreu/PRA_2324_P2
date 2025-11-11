@@ -8,18 +8,15 @@ int BusquedaBinaria(const std::vector<int>& arr, int buscar, int ini, int fin) {
     int minimo = ini;
     int maximo = fin;
 
-    while (minimo <= maximo) {
-        int medio = minimo + (maximo - minimo) / 2;
-
-        if (arr[medio] == buscar) {
-            return medio;
-        }
-        else if (arr[medio] < buscar) {
-            minimo = medio + 1;
-        }
-        else {
-            maximo = medio - 1;
-        }
+    int medio = (minimo + maximo) / 2;
+    if (arr[medio] == buscar) {
+        return medio;
+    }
+    else if (arr[medio] < buscar) {
+        return BusquedaBinaria(arr, buscar, medio + 1, maximo);
+    }
+    else {
+        return BusquedaBinaria(arr, buscar, minimo, medio - 1);
     }
 
     return -1;
@@ -29,18 +26,15 @@ int BusquedaBinariaINV(const std::vector<int> &arr, int buscar, int ini, int fin
     int minimo = ini;
     int maximo = fin;
 
-    while (minimo <= maximo) {
-        int medio = minimo + (maximo - minimo) / 2;
-
-        if (arr[medio] == buscar) {
-            return medio;
-        }
-        else if (arr[medio] > buscar) {
-            minimo = medio + 1;
-        }
-        else {
-            maximo = medio - 1;
-        }
+    int medio = (minimo + maximo) / 2;
+    if (arr[medio] == buscar) {
+        return medio;
+    }
+    else if (arr[medio] > buscar) {
+        return BusquedaBinariaINV(arr, buscar, medio + 1, maximo);
+    }
+    else {
+        return BusquedaBinariaINV(arr, buscar, minimo, medio - 1);
     }
 
     return -1;
